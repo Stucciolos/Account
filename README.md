@@ -20,7 +20,7 @@ Implementare una funzione per permettere agli utenti di creare un nuovo account.
 - Validare che l'username non esista già.
 - Salvare i dettagli dell'account in una struttura dati appropriata (es. HashMap).
 
-### Esempio di Utilizzo
+ESEMPI UTILIZZO
 GestioneAccount gestioneAccount = new GestioneAccount();
 gestioneAccount.registraAccount();
 # Account
@@ -36,7 +36,7 @@ Chiedere all'utente di inserire username e password.
 Verificare che le credenziali corrispondano a quelle di un account esistente.
 Se le credenziali sono corrette, consentire l'accesso; altrimenti, mostrare un errore.
 
-### ESEMPIO UTILIZZO
+ESEMPIO UTILIZZO
 LoginManager.login();
 
 
@@ -51,7 +51,7 @@ Read: Consentire agli utenti di visualizzare le loro informazioni.
 Update: Permettere agli utenti di modificare le loro informazioni.
 Delete: Consentire agli utenti di eliminare il loro account.
 
-### ESEMPIO UTLILIZZO
+ESEMPIO UTLILIZZO
 
 UserDataManager.createData();
 UserDataManager.readData();
@@ -70,7 +70,7 @@ Verificare che la vecchia password sia corretta prima di permettere il cambio co
 Aggiornare la password nell'archivio dati.
 
 
-### Esempio di Utilizzo
+ESEMPI UTILIZZO
 PasswordManager.changePassword();
 
 
