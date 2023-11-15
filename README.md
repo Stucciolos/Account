@@ -21,7 +21,6 @@ Implementare una funzione per permettere agli utenti di creare un nuovo account.
 - Salvare i dettagli dell'account in una struttura dati appropriata (es. HashMap).
 
 ### Esempio di Utilizzo
-```java
 GestioneAccount gestioneAccount = new GestioneAccount();
 gestioneAccount.registraAccount();
 # Account
