@@ -8,7 +8,6 @@ Questo progetto Java è un'applicazione di gestione account che include funziona
 2. [Login](#login)
 3. [CRUD di Dati Utente](#crud-di-dati-utente)
 4. [Funzione Aggiuntiva - Cambio Password](#funzione-aggiuntiva---cambio-password)
-5. [Versionamento con Git](#versionamento-con-git)
 
 ## Creazione Account
 
