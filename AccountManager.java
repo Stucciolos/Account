@@ -3,9 +3,13 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class AccountManager {
     private static final Map<String, String> accounts = new HashMap<>();
+    private static final String USER_DATA_FILE_PATH = "password_data_backup.txt";
+    private static String loggedInUser;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -55,7 +59,7 @@ public class AccountManager {
         return password.length() >= 8;
     }
 
-    private static String encryptPassword(String password) {
+    public static String encryptPassword(String password){
         String encryptedPassword = null;
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -74,12 +78,28 @@ public class AccountManager {
 
     private static void backupData() {
         try (FileWriter writer = new FileWriter(USER_DATA_FILE_PATH)) {
-            for (Map.Entry<String, String> entry : userData.entrySet()) {
+            for (Map.Entry<String, String> entry : accounts.entrySet()) {
                 writer.write(entry.getKey() + ":" + entry.getValue() + "\n");
             }
             System.out.println("Backup dei dati completato con successo.");
         } catch (IOException e) {
             System.out.println("Errore durante il backup dei dati: " + e.getMessage());
         }
+    }
+
+    public static Map<String, String> getAccounts() {
+        return accounts;
+    }
+
+    public static String getLoggedInUser() {
+        return loggedInUser;
+    }
+
+    public static void setLoggedInUser(String username) {
+        loggedInUser = username;
+    }
+
+    public static boolean isLoggedIn() {
+        return loggedInUser != null;
     }
 }
