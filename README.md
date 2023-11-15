@@ -26,7 +26,7 @@ gestioneAccount.registraAccount();
 # Account
 
 
-Login
+### Login
 
 Obiettivo
 Creare una funzione di login che consenta agli utenti di accedere utilizzando le credenziali create.
@@ -40,7 +40,7 @@ Se le credenziali sono corrette, consentire l'accesso; altrimenti, mostrare un e
 LoginManager.login();
 
 
-CRUD di Dati Utente
+### CRUD di Dati Utente
 
 Obiettivo
 Implementare le funzionalità CRUD per i dati dell'utente.
@@ -59,7 +59,7 @@ UserDataManager.updateData();
 UserDataManager.deleteData();
 
 
-Funzione Aggiuntiva - Cambio Password
+### Funzione Aggiuntiva - Cambio Password
 
 Obiettivo
 Aggiungere una funzione che permetta agli utenti di cambiare la password.
