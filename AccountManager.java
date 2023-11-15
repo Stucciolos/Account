@@ -6,18 +6,27 @@ import java.util.Scanner;
 
 public class AccountManager {
     private static final Map<String, String> accounts = new HashMap<>();
-    
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        createAccount(scanner);
+
+        scanner.close();
+    }
+
     public static void createAccount(Scanner scanner) {
         System.out.println("Parte 1: Creazione Account");
-
         String username = requestUniqueUsername(scanner);
         String password = requestPassword(scanner);
 
-        String encryptedPassword = encryptPassword(password);
-
-        accounts.put(username, encryptedPassword);
-
-        System.out.println("Account creato con successo.");
+        if (validatePassword(password)) {
+            String encryptedPassword = encryptPassword(password);
+            accounts.put(username, encryptedPassword);
+            System.out.println("Account creato con successo.");
+            backupData();
+        } else {
+            System.out.println("Errore: La password non è valida. Deve avere almeno 8 caratteri.");
+        }
     }
 
     private static String requestUniqueUsername(Scanner scanner) {
@@ -42,6 +51,10 @@ public class AccountManager {
         return scanner.nextLine();
     }
 
+    private static boolean validatePassword(String password) {
+        return password.length() >= 8;
+    }
+
     private static String encryptPassword(String password) {
         String encryptedPassword = null;
         try {
@@ -57,5 +70,16 @@ public class AccountManager {
             e.printStackTrace();
         }
         return encryptedPassword;
+    }
+
+    private static void backupData() {
+        try (FileWriter writer = new FileWriter(USER_DATA_FILE_PATH)) {
+            for (Map.Entry<String, String> entry : userData.entrySet()) {
+                writer.write(entry.getKey() + ":" + entry.getValue() + "\n");
+            }
+            System.out.println("Backup dei dati completato con successo.");
+        } catch (IOException e) {
+            System.out.println("Errore durante il backup dei dati: " + e.getMessage());
+        }
     }
 }
